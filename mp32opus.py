@@ -56,7 +56,7 @@ def main():
     parser = argparse.ArgumentParser(description=main.__doc__, epilog="Homepage: https://github.com/kbat/mp32opus")
     parser.add_argument('mp3', type=str, help='MP3 input file name')
     parser.add_argument('opus', type=str, nargs='?', help="Opus output file name",default="")
-    parser.add_argument('--bitrate', dest='bitrate', type=int, help='Opus Bitrate. If not specivied, set to min(48kbit/sec,half of MP3 bitrate). 48 is a good number for voice. Opus 64 corresponds to MP3 96. More details are here: https://auphonic.com/blog/2012/09/26/opus-revolutionary-open-audio-codec-podcasts-and-internet-audio', default=0, required=False)
+    parser.add_argument('--bitrate', dest='bitrate', type=int, help='Opus bitrate. If not specivied, set to min(48kbit/sec,half of MP3 bitrate). 48 is a good number for voice. Opus 64 corresponds to MP3 96. More details are here: https://auphonic.com/blog/2012/09/26/opus-revolutionary-open-audio-codec-podcasts-and-internet-audio', default=0, required=False)
     args = parser.parse_args()
 
     if args.opus == "":
@@ -123,7 +123,7 @@ def main():
     else:
         year = u"--date %s" % year
 
-    cmd = "avconv -i '%s' -f wav - | opusenc --bitrate %.3f %s %s %s %s %s %s %s - '%s'" % (args.mp3, args.bitrate, artist, title, album, genre, year, trackn, picture, args.opus)
+    cmd = "avconv -i \"%s\" -f wav - | opusenc --bitrate %.3f %s %s %s %s %s %s %s - \"%s\"" % (args.mp3, args.bitrate, artist, title, album, genre, year, trackn, picture, args.opus)
 # This maps the tags automatically but unstable:
 #    cmd = "avconv -i %s -map 0:a -codec:a opus -b:a %dk -vbr on -strict -2 %s" % (args.mp3, args.bitrate, args.opus)
     print(cmd)
