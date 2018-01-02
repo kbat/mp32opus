@@ -1,7 +1,7 @@
 # mp32opus
-An mp3 to opus converter
+An MP3 to Opus converter
 
-Converts MP3 files into the OPUS format and saves ID3 tags and images in the OPUS file.
+Converts MP3 files into the Opus format and saves ID3 tags and images in the Opus file.
 
 ## Depends
 - python >= 3
