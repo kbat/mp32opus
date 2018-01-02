@@ -56,7 +56,7 @@ def main():
     parser = argparse.ArgumentParser(description=main.__doc__)
     parser.add_argument('mp3', type=str, help='MP3 input file name')
     parser.add_argument('opus', type=str, nargs='?', help="Opus output file name",default="")
-    parser.add_argument('-br', dest='bitrate', type=int, help='Opus Bitrate. If not specivied, set to min(48kb/sec,half of MP3 bitrate). 48 is a good number for voice. Opus 64 corresponds to MP3 96. More details are here: https://auphonic.com/blog/2012/09/26/opus-revolutionary-open-audio-codec-podcasts-and-internet-audio', default=0, required=False)
+    parser.add_argument('--bitrate', dest='bitrate', type=int, help='Opus Bitrate. If not specivied, set to min(48kb/sec,half of MP3 bitrate). 48 is a good number for voice. Opus 64 corresponds to MP3 96. More details are here: https://auphonic.com/blog/2012/09/26/opus-revolutionary-open-audio-codec-podcasts-and-internet-audio', default=0, required=False)
     args = parser.parse_args()
 
     if args.opus == "":

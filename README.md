@@ -10,4 +10,4 @@ Converts MP3 files into the OPUS format and saves ID3 tags and images in the OPU
 
 ## Usage
 - `mp32opus -h` displays help
-- Example: `mp32opus -br 64 file.mp3 file.opus` converts `file.mp3` into `file.opus` with 64 kbit/sec bitrate
+- Example: `mp32opus --bitrate 64 file.mp3 file.opus` converts `file.mp3` into `file.opus` with 64 kbit/sec bitrate
