@@ -89,20 +89,20 @@ def main():
     if title is None:
         title = ""
     else:
-        title = u"--title '%s'" % title
+        title = u"--title \"%s\"" % title
 
     artist = audiofile.tag.artist
     if artist is None:
         artist = ""
     else:
-        artist = u"--artist '%s'" % artist
+        artist = u"--artist \"%s\"" % artist
 
     # album
     album = audiofile.tag.album
     if album is None:
         album = ""
     else:
-        album = u"--album '%s'" % album
+        album = u"--album \"%s\"" % album
 
     # track number
     trackn = audiofile.tag.track_num[0]
