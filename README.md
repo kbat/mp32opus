@@ -6,6 +6,7 @@ Converts MP3 files into the OPUS format and saves ID3 tags and images in the OPU
 ## Depends
 - python >= 3
 - python3-eyed3 >= 0.8
+- libav-tools >= 6:0.8
 
 ## Usage
 - `mp32opus -h` displays help
