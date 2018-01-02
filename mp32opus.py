@@ -77,6 +77,9 @@ def main():
         img.Print()
         picture = picture + str(img)
 
+    # screen double quotes in the file names before using them in BASH:
+    args.mp3  =  args.mp3.replace("\"", "\\\"")
+    args.opus = args.opus.replace("\"", "\\\"")
 
     cmd = "avconv -i \"%s\" -f flac - | opusenc --bitrate %.3f %s - \"%s\"" % (args.mp3, args.bitrate, picture, args.opus)
 # This looks more elegant, but it's yet unstable with current avconv:
