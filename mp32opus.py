@@ -69,13 +69,14 @@ def main():
 
     print("Bitrate: ", args.bitrate, audiofile.info.bit_rate)
     print("Duration: ", audiofile.info.time_secs)
-    
-    print("Images:")
+
     picture = ""
-    for imageinfo in audiofile.tag.images:
-        img = Image(imageinfo.mime_type, imageinfo.picture_type, imageinfo.description, imageinfo.image_data)
-        img.Print()
-        picture = picture + str(img)
+    if audiofile.tag is not None:
+        print("Images:")
+        for imageinfo in audiofile.tag.images:
+            img = Image(imageinfo.mime_type, imageinfo.picture_type, imageinfo.description, imageinfo.image_data)
+            img.Print()
+            picture = picture + str(img)
 
     # screen double quotes in the file names before using them in BASH:
     args.mp3  =  args.mp3.replace("\"", "\\\"")
