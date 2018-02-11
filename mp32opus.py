@@ -66,6 +66,9 @@ def main():
 
     if args.bitrate == 0:
         args.bitrate = min(audiofile.info.bit_rate[1]/2.0, 48)
+        if args.bitrate<20:
+            print("Calculated bitrate of %g can cause significant quality reduction. Set it explicitly with '--bitrate' argument." % args.bitrate)
+            exit(1)
 
     print("Bitrate: ", args.bitrate, audiofile.info.bit_rate)
     print("Duration: ", audiofile.info.time_secs)
