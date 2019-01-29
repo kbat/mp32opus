@@ -56,7 +56,7 @@ def main():
     parser = argparse.ArgumentParser(description=main.__doc__, epilog="Homepage: https://github.com/kbat/mp32opus")
     parser.add_argument('mp3', type=str, help='MP3 input file name.')
     parser.add_argument('opus', type=str, nargs='?', help="Opus output file name. If not specified, the MP3 file name with the .opus extension is used.",default="")
-    parser.add_argument('--bitrate', dest='bitrate', type=int, help='Opus bitrate. If not specivied, set to min(48kbit/sec,half of MP3 bitrate). 48 is a good number for voice. Opus 64 corresponds to MP3 96. More details are here: https://auphonic.com/blog/2012/09/26/opus-revolutionary-open-audio-codec-podcasts-and-internet-audio', default=0, required=False)
+    parser.add_argument('--bitrate', dest='bitrate', type=int, help='Opus bitrate. If not specivied, set to min(48kbit/sec,half of MP3 bitrate). 48 kbit/sec is a reasonable bitrate for audiobooks, which approximately corresponds to MP3 96. More details are here: https://auphonic.com/blog/2012/09/26/opus-revolutionary-open-audio-codec-podcasts-and-internet-audio and here: https://wiki.xiph.org/index.php?title=Opus_Recommended_Settings&mobileaction=toggle_view_desktop', default=0, required=False)
     args = parser.parse_args()
 
     if args.opus == "":
