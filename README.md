@@ -6,7 +6,7 @@ Converts MP3 files into the Opus format and saves ID3 tags and images in the Opu
 ## Depends
 - python >= 3
 - python3-eyed3 >= 0.8
-- libav-tools >= 7:3.4
+- ffmpeg >= 7:4.1
 - opus-tools >= 0.1.10
 
 ## Usage

@@ -86,9 +86,7 @@ def main():
     args.mp3  =  args.mp3.replace("\"", "\\\"")
     args.opus = args.opus.replace("\"", "\\\"")
 
-    cmd = "avconv -i \"%s\" -f flac - | opusenc --bitrate %.3f %s - \"%s\"" % (args.mp3, args.bitrate, picture, args.opus)
-# This looks more elegant, but it's yet unstable with current avconv:
-#    cmd = "avconv -i %s -map 0:a -codec:a opus -b:a %dk -vbr on -strict -2 %s" % (args.mp3, args.bitrate, args.opus)
+    cmd = "ffmpeg -i \"%s\" -f flac - | opusenc --bitrate %.3f %s - \"%s\"" % (args.mp3, args.bitrate, picture, args.opus)
     print(cmd)
 
     if not os.path.isfile(args.opus):
