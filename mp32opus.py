@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 import os
@@ -39,6 +39,7 @@ class Image:
         self.fb = tempfile.NamedTemporaryFile()
         self.fname = self.fb.name
         self.fb.write(self.image_data)
+        self.fb.close()
 
     def Print(self):
         print(" MIME: ",self.mime_type)
@@ -93,7 +94,7 @@ def main():
         subprocess.call(cmd, shell=True)
     else:
         sys.exit("Error: %s exists" % args.opus)
-        
+
 
 
 if __name__=="__main__":
